@@ -1,6 +1,8 @@
 # Code blocks
 
-```python
+As seen in \ref{code:python_ex}
+
+```{.python .numberLines #code:python_ex caption="Python function to add two numbers"}
 import datetime
 
 # Ask for the user's name

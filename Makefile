@@ -3,7 +3,8 @@
 TEMPLATE = templates/uoc_eisvogel_3_1.tex
 
 FLAGS = -s --filter pandoc-include --filter pandoc-tablenos --filter pandoc-fignos --top-level-division=chapter
-BIBLIO = --citeproc
+# BIBLIO = --citeproc
+BIBLIO = --biblatex
 
 all: demo
 
@@ -24,6 +25,8 @@ demo:
 	@cp build/demo.tex .tmp/
 	@cp -r demo/images .tmp/demo
 	@cp -r icons/ .tmp/icons
+	cd .tmp && pdflatex -interaction=nonstopmode demo.tex > /dev/null || true
+	biber .tmp/demo
 	cd .tmp && pdflatex -interaction=nonstopmode demo.tex > /dev/null || true
 	cd .tmp && pdflatex -interaction=nonstopmode demo.tex > /dev/null || true
 	@cp .tmp/demo.pdf build/

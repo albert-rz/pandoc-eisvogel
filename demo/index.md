@@ -23,7 +23,11 @@ footer-right: "\\thepage"
 caption-justification: centering
 biblatex: true
 bibliography: demo/references.bib
-csl: templates/ieee.csl
+biblio-title: Biblio
+biblio-style: numeric-comp
+biblatexoptions:
+    - backend=biber
+    - sorting=none
 header-includes:
     - \usepackage{microtype}                                # Tweak font spacing for aesthetics
     - \usepackage[T1]{fontenc}                              # 8-bit encoding with 256 glyphs
@@ -47,4 +51,5 @@ header-includes:
 
 !include demo/equations.md
 
-# Bibliography
+<!-- \printbibliography[title=Biblio, heading=bibintoc] -->
+<!-- # Biblio -->

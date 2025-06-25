@@ -983,7 +983,7 @@ This work is subject to a Attribution-NonCommercial-NoDerivatives 4.0 Internatio
 \textbf{Degree}             & \graycell $degree$\\ \hline
 \textbf{Final Project area} & \graycell $area$ \\ \hline
 \textbf{Language}           & \graycell $language$ \\ \hline
-\textbf{Keywords}           & \graycell $keywords$ \\ \hline
+\textbf{Keywords}           & \graycell {$for(keywords)$$keywords$$sep$, $endfor$} \\ \hline
 \multicolumn{2}{|p{14cm}|}{\textbf{Abstract}} \\ \hline
 \multicolumn{2}{|p{14.5cm}|}{\cellcolor[HTML]{EFEFEF}$abstract$} \\ \hline
 \end{tabular}
@@ -1074,7 +1074,12 @@ $endif$
 $endif$
 $endif$
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+% --------
+% My own modifications on eisvogel template
+% \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\printbibliography$if(biblio-title)$[title=$biblio-title$, heading=bibintoc]$endif$
+% End of my own modifications
+% ------
 
 $endif$
 $for(include-after)$
